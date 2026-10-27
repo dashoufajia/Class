@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus Esports - 电竞赛事数据中心</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Lucide 图标 -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.6)); }
+      50% { opacity: 0.5; filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.2)); }
+    }
+    .live-indicator { animation: pulse-glow 2s infinite; }
+  </style>
+</head>
+<body class="bg-[#0b0e14] text-slate-200 min-h-screen flex flex-col font-sans">
+
+  <!-- 顶部导航栏 -->
+  <header class="border-b border-slate-800 bg-[#0f131c]/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <a href="#" class="flex items-center gap-2 text-xl font-bold text-white tracking-wider">
+          <i data-lucide="zap" class="text-indigo-500 w-6 h-6"></i>
+          NEXUS<span class="text-indigo-500">DATA</span>
+        </a>
+        <nav class="hidden md:flex gap-6 text-sm font-medium">
+          <a href="#" class="text-indigo-400">赛事日程</a>
+          <a href="#" class="text-slate-400 hover:text-white transition">战队排行</a>
+          <a href="#" class="text-slate-400 hover:text-white transition">选手数据库</a>
+          <a href="#" class="text-slate-400 hover:text-white transition">赛事分析</a>
+        </nav>
+      </div>
+      <!-- 游戏切换快捷筛选 -->
+      <div class="flex items-center gap-2 bg-slate-900 p-1 rounded-lg border border-slate-800 text-xs">
+        <button class="px-3 py-1.5 rounded-md bg-indigo-600 text-white font-medium">全部</button>
+        <button class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white">LoL</button>
+        <button class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white">CS2</button>
+        <button class="px-3 py-1.5 rounded-md text-slate-400 hover:text-white">Valorant</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主体内容 -->
+  <main class="max-w-7xl mx-auto px-4 py-8 flex-1 w-full grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- 左侧主要区域：赛事中心 (占据 2 列) -->
+    <div class="lg:col-span-2 space-y-6">
+      
+      <!-- 焦点焦点赛事 (Live Highlight) -->
+      <div class="bg-gradient-to-r from-indigo-950/40 via-slate-900 to-slate-900 border border-indigo-500/30 rounded-xl p-5 relative overflow-hidden">
+        <div class="flex justify-between items-center mb-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500 live-indicator"></span>
+            <span class="text-xs font-bold text-red-500 uppercase tracking-widest">LIVE 进行中</span>
+            <span class="text-xs text-slate-400">· 英雄联盟 LPL 春季赛</span>
+          </div>
+          <span class="text-xs bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">BO5 - Game 3</span>
+        </div>
+
+        <div class="flex items-center justify-between py-4">
+          <!-- 战队 A -->
+          <div class="flex items-center gap-4 flex-1">
+            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center font-bold text-lg text-indigo-400 border border-slate-700">BLG</div>
+            <div>
+              <div class="font-bold text-lg text-white">Bilibili Gaming</div>
+              <div class="text-xs text-slate-400">击杀: 14 · 经济: 48.2k</div>
+            </div>
+          </div>
+
+          <!-- 比分 -->
+          <div class="px-6 text-center">
+            <div class="text-3xl font-extrabold text-white tracking-wider">1 : 1</div>
+            <div class="text-xs text-indigo-400 mt-1 font-mono">24:32</div>
+          </div>
+
+          <!-- 战队 B -->
+          <div class="flex items-center gap-4 flex-1 justify-end text-right">
+            <div>
+              <div class="font-bold text-lg text-white">Top Esports</div>
+              <div class="text-xs text-slate-400">击杀: 10 · 经济: 44.5k</div>
+            </div>
+            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center font-bold text-lg text-red-400 border border-slate-700">TES</div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-4 border-t border-slate-800/80 flex justify-between items-center text-xs text-slate-400">
+          <div class="flex gap-4">
+            <span>小龙: <b class="text-white">2 - 1</b></span>
+            <span>大龙: <b class="text-white">0 - 0</b></span>
+            <span>推塔: <b class="text-white">5 - 2</b></span>
+          </div>
+          <a href="#" class="text-indigo-400 hover:text-indigo-300 flex items-center gap-1">查看详细数据盘 <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+        </div>
+      </div>
+
+      <!-- 赛事列表选项卡 -->
+      <div class="flex border-b border-slate-800 gap-6 text-sm">
+        <button class="pb-3 text-white border-b-2 border-indigo-500 font-semibold">今日赛程</button>
+        <button class="pb-3 text-slate-400 hover:text-white transition">正在进行 (2)</button>
+        <button class="pb-3 text-slate-400 hover:text-white transition">已完结</button>
+      </div>
+
+      <!-- 赛程列表 -->
+      <div class="space-y-3">
+        <!-- 单场比赛 1 -->
+        <div class="bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-lg p-4 flex items-center justify-between transition">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-slate-500">17:00</span>
+            <span class="text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded">CS2</span>
+            <div class="flex items-center gap-3">
+              <span class="font-medium text-white">FaZe Clan</span>
+              <span class="text-xs text-slate-500 font-bold">vs</span>
+              <span class="font-medium text-white">Natus Vincere</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-xs text-indigo-400 font-medium">即将开始</span>
+            <button class="text-slate-400 hover:text-white"><i data-lucide="bell" class="w-4 h-4"></i></button>
+          </div>
+        </div>
+
+        <!-- 单场比赛 2 -->
+        <div class="bg-slate-900/60 border border-slate-800/80 hover:border-slate-700 rounded-lg p-4 flex items-center justify-between transition">
+          <div class="flex items-center gap-4">
+            <span class="text-xs font-mono text-slate-500">19:30</span>
+            <span class="text-xs bg-slate-800 text-slate-400 px-2 py-0.5 rounded">VCT</span>
+            <div class="flex items-center gap-3">
+              <span class="font-medium text-white">Sentinels</span>
+              <span class="text-xs text-slate-500 font-bold">vs</span>
+              <span class="font-medium text-white">Paper Rex</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <span class="text-xs text-slate-500">未开赛 (BO3)</span>
+            <button class="text-slate-400 hover:text-white"><i data-lucide="bell" class="w-4 h-4"></i></button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 右侧辅助区域：排行榜与新闻 (占据 1 列) -->
+    <div class="space-y-6">
+      
+      <!-- 战队排行榜 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5">
+        <div class="flex items-center justify-between mb-4">
+          <h3 class="font-bold text-white text-sm flex items-center gap-2">
+            <i data-lucide="trophy" class="w-4 h-4 text-yellow-500"></i> 全球战队积分榜 (LoL)
+          </h3>
+          <a href="#" class="text-xs text-indigo-400 hover:underline">全部</a>
+        </div>
+        <div class="space-y-3">
+          <div class="flex items-center justify-between text-sm py-1 border-b border-slate-800/40">
+            <div class="flex items-center gap-3">
+              <span class="font-bold text-indigo-400 w-4">1</span>
+              <span class="font-medium text-white">Gen.G</span>
+            </div>
+            <span class="text-xs text-slate-400">18 - 2 (90%)</span>
+          </div>
+          <div class="flex items-center justify-between text-sm py-1 border-b border-slate-800/40">
+            <div class="flex items-center gap-3">
+              <span class="font-bold text-slate-400 w-4">2</span>
+              <span class="font-medium text-white">Bilibili Gaming</span>
+            </div>
+            <span class="text-xs text-slate-400">17 - 3 (85%)</span>
+          </div>
+          <div class="flex items-center justify-between text-sm py-1 border-b border-slate-800/40">
+            <div class="flex items-center gap-3">
+              <span class="font-bold text-slate-500 w-4">3</span>
+              <span class="font-medium text-white">T1</span>
+            </div>
+            <span class="text-xs text-slate-400">15 - 5 (75%)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 热门选手数据 -->
+      <div class="bg-slate-900/60 border border-slate-800 rounded-xl p-5">
+        <h3 class="font-bold text-white text-sm mb-4 flex items-center gap-2">
+          <i data-lucide="flame" class="w-4 h-4 text-orange-500"></i> 本周最佳选手
+        </h3>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-lg bg-indigo-950 border border-indigo-500/30 flex items-center justify-center font-bold text-indigo-400">
+            Chovy
+          </div>
+          <div>
+            <div class="text-sm font-bold text-white">Jeong Ji-hoon</div>
+            <div class="text-xs text-slate-400">GEN · 中单</div>
+          </div>
+          <div class="ml-auto text-right">
+            <div class="text-sm font-bold text-indigo-400">8.4</div>
+            <div class="text-[10px] text-slate-500">平均 KDA</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script>
+    // 初始化 Lucide 图标
+    lucide.createIcons();
+  </script>
+</body>
+</html>
